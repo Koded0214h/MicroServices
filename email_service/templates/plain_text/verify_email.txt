@@ -1,0 +1,21 @@
+Verify Your Email Address
+
+Hello {{ user.name }},
+
+Welcome to Scafld! Please verify your email address by clicking the link below:
+
+{{ verification_url }}
+
+Or copy and paste this link into your browser:
+{{ verification_url }}
+
+This verification link will expire in 24 hours.
+
+If you didn't create an account with Scafld, you can safely ignore this email.
+
+Best regards,
+The Scafld Team
+
+---
+Scafld • https://scafld.com
+This is an automated message. Please do not reply to this email.

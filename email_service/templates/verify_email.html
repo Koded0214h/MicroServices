@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Verify Your Email{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 40px 20px;">
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 80px; height: 80px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+        <span style="font-size: 40px; color: white;">✓</span>
+    </div>
+    
+    <h1 style="margin-bottom: 16px;">Verify Your Email Address</h1>
+    <p style="font-size: 18px; color: #6B7280; margin-bottom: 32px;">
+        Please confirm that {{ user.email }} is your email address.
+    </p>
+    
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="{{ verification_url }}" 
+           style="display: inline-block; padding: 16px 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
+            Verify Email Address
+        </a>
+    </div>
+    
+    <p style="color: #6B7280; margin-bottom: 24px;">
+        Or copy and paste this link into your browser:
+    </p>
+    
+    <div style="background: #F3F4F6; padding: 16px; border-radius: 8px; font-family: monospace; word-break: break-all; margin-bottom: 32px;">
+        {{ verification_url }}
+    </div>
+    
+    <div style="background: #FEF2F2; border: 1px solid #FCA5A5; padding: 16px; border-radius: 8px; text-align: left; margin-bottom: 32px;">
+        <p style="margin: 0; color: #7F1D1D;">
+            <strong>⚠️ Important:</strong> This link will expire in 24 hours. If you didn't request this verification, you can safely ignore this email.
+        </p>
+    </div>
+    
+    <p style="color: #6B7280;">
+        Need help? <a href="mailto:support@scafld.com" style="color: #7C3AED;">Contact our support team</a>
+    </p>
+</div>
+{% endblock %}

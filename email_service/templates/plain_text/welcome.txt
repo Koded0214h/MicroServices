@@ -1,0 +1,44 @@
+Welcome to Scafld, {{ user.name }}! 🎉
+
+We're excited to have you on board. Let's build something amazing together.
+
+{% if verification_url and "token" in verification_url %}
+FIRST, VERIFY YOUR EMAIL
+=======================
+Please verify your email address to unlock all Scafld features:
+
+{{ verification_url }}
+
+This link will expire in 24 hours.
+{% endif %}
+
+GETTING STARTED
+===============
+Here's how to get started:
+
+1. Complete your profile
+   Add your avatar, bio, and connect your GitHub account.
+
+2. Connect your first repository
+   Link your repositories to start generating code scaffolds.
+
+3. Create your first scaffold
+   Use our templates or create custom scaffolds for your projects.
+
+QUICK LINKS
+===========
+Start Onboarding: {{ onboarding_url }}
+Documentation: {{ frontend_url() }}/docs
+
+NEED HELP?
+==========
+Our team is here to help you succeed:
+
+Help Center: {{ frontend_url() }}/support
+Contact Support: support@scafld.com
+Community: {{ frontend_url() }}/community
+
+We're thrilled to see what you'll build with Scafld!
+
+Best regards,
+The Scafld Team

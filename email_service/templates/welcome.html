@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Scafld!{% endblock %}
+
+{% block content %}
+<!-- Header with welcome message -->
+<div style="text-align: center; margin-bottom: 32px;">
+    <h1 style="margin-bottom: 16px;">Welcome to Scafld, {{ user.name }}! 🎉</h1>
+    <p style="font-size: 18px; color: #6B7280;">
+        We're excited to have you on board. Let's build something amazing together.
+    </p>
+</div>
+
+<!-- Verification section (if token provided) -->
+{% if verification_url and "token" in verification_url %}
+<div style="background: #F3F4F6; padding: 24px; border-radius: 8px; margin-bottom: 32px;">
+    <h2 style="margin-top: 0;">First, let's verify your email</h2>
+    <p>Please verify your email address to unlock all Scafld features:</p>
+    <div style="text-align: center; margin: 24px 0;">
+        <a href="{{ verification_url }}" 
+           style="display: inline-block; padding: 12px 24px; background: #7C3AED; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+            Verify Email Address
+        </a>
+    </div>
+    <p style="font-size: 14px; color: #6B7280;">
+        Or copy this link: <code style="background: #E5E7EB; padding: 4px 8px; border-radius: 4px;">{{ verification_url }}</code>
+    </p>
+</div>
+{% endif %}
+
+<!-- Next steps -->
+<div style="margin-bottom: 32px;">
+    <h2>Here's how to get started:</h2>
+    
+    <div style="display: grid; gap: 16px; margin-top: 24px;">
+        {% for step in next_steps %}
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="background: #7C3AED; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">
+                {{ loop.index }}
+            </div>
+            <div>
+                <h3 style="margin: 0 0 4px 0;">{{ step }}</h3>
+                <p style="margin: 0; color: #6B7280;">
+                    {% if loop.index == 1 %}
+                    Add your avatar, bio, and connect your GitHub account.
+                    {% elif loop.index == 2 %}
+                    Link your repositories to start generating code scaffolds.
+                    {% elif loop.index == 3 %}
+                    Use our templates or create custom scaffolds for your projects.
+                    {% else %}
+                    Explore advanced features and integrations.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Quick links -->
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 16px; margin-bottom: 32px;">
+    <h3 style="margin-top: 0; color: #92400E;">🚀 Quick Start</h3>
+    <p style="margin-bottom: 16px;">Jump right in:</p>
+    <a href="{{ onboarding_url }}" 
+       style="display: inline-block; padding: 8px 16px; background: #F59E0B; color: #92400E; text-decoration: none; border-radius: 4px; font-weight: 600; margin-right: 8px;">
+        Start Onboarding
+    </a>
+    <a href="{{ frontend_url() }}/docs" 
+       style="display: inline-block; padding: 8px 16px; border: 2px solid #F59E0B; color: #92400E; text-decoration: none; border-radius: 4px; font-weight: 600;">
+        Read Documentation
+    </a>
+</div>
+
+<!-- Support section -->
+<div style="text-align: center; padding: 24px; background: #F9FAFB; border-radius: 8px;">
+    <h3 style="margin-top: 0;">Need help?</h3>
+    <p>Our team is here to help you succeed:</p>
+    <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
+        <a href="{{ frontend_url() }}/support" 
+           style="color: #7C3AED; text-decoration: none; font-weight: 600;">
+            📚 Help Center
+        </a>
+        <a href="mailto:support@scafld.com" 
+           style="color: #7C3AED; text-decoration: none; font-weight: 600;">
+            ✉️ Contact Support
+        </a>
+        <a href="{{ frontend_url() }}/community" 
+           style="color: #7C3AED; text-decoration: none; font-weight: 600;">
+            👥 Community
+        </a>
+    </div>
+</div>
+
+<!-- Closing -->
+<div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #E5E7EB;">
+    <p>We're thrilled to see what you'll build with Scafld!</p>
+    <p>
+        Best regards,<br>
+        <strong>The Scafld Team</strong>
+    </p>
+</div>
+{% endblock %}
